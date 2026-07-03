@@ -3,8 +3,16 @@ import matplotlib.pyplot as plt
 import streamlit as st
 from analysis import top5_industry_region_method,top5_cities_method,top5_industry_method,top5_city_industry_method
 from data import import_csv 
+from matplotlib import font_manager
+# import os
 
-plt.rcParams["font.family"]=["Microsoft JhengHei"] #
+font_path = "font/NotoSansCJKtc-Regular.otf"
+# print(font_path)
+# print(os.path.exists(font_path))
+font_manager.fontManager.addfont(font_path)
+
+plt.rcParams["font.family"] = font_manager.FontProperties(fname=font_path).get_name()
+# plt.rcParams["font.family"]=["Microsoft JhengHei"] #
 data_csv=pd.read_csv("./Business_Sales.csv",encoding="utf-8",header=2) #讀取csv資料
 # st.title("產業結構分析")
 
